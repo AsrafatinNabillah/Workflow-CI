@@ -36,18 +36,17 @@ def train_model(data_path: str):
     # ===============================
     # 3. TRAIN MODEL
     # ===============================
-    with mlflow.start_run():
-        model = RandomForestClassifier(
-            n_estimators=100,
-            random_state=42
-        )
-        model.fit(X_train, y_train)
+    model = RandomForestClassifier(
+        n_estimators=100,
+        random_state=42
+    )
+    model.fit(X_train, y_train)
 
-        y_pred = model.predict(X_test)
+    y_pred = model.predict(X_test)
 
-        print("Accuracy:", accuracy_score(y_test, y_pred))
-        print("\nClassification Report:")
-        print(classification_report(y_test, y_pred))
+    print("Accuracy:", accuracy_score(y_test, y_pred))
+    print("\nClassification Report:")
+    print(classification_report(y_test, y_pred))
 
     # ===============================
     # 4. EVALUATION
