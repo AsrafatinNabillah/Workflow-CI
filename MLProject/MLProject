@@ -1,4 +1,4 @@
-name: ispu-ml-project
+name: ISPU-RandomForest-Training
 
 conda_env: conda.yaml
 

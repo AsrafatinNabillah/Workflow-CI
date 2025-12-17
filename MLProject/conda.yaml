@@ -1,12 +1,12 @@
-name: ispu-env
+name: ispu-mlflow
 channels:
-  - defaults
+  - conda-forge
 dependencies:
   - python=3.9
   - pip
   - pip:
       - pandas
       - scikit-learn
-      - joblib
       - mlflow
+      - joblib
       - openpyxl

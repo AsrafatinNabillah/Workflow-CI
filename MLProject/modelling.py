@@ -73,4 +73,4 @@ if __name__ == "__main__":
     BASE_DIR = Path(__file__).resolve().parent
     DATA_PATH = BASE_DIR / "DataISPU_prepocessing.xlsx"
 
-    train_model(DATA_PATH)
+    train_model(str(DATA_PATH))

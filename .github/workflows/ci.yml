@@ -2,8 +2,8 @@ name: MLflow CI Training
 
 on:
   push:
-    branches:
-      - main
+    branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   train-model:
@@ -11,17 +11,18 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v3
         with:
-          python-version: '3.9'
-
-      - name: Install MLflow
-        run: |
-          pip install mlflow
+          auto-activate-base: false
+          activate-environment: ispu-mlflow
+          environment-file: MLProject/conda.yaml
+          python-version: 3.9
 
       - name: Run MLflow Project
+        shell: bash -l {0}
         run: |
-          mlflow run ./MLProject
+          cd MLProject
+          mlflow run .
